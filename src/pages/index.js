@@ -1,22 +1,34 @@
 import React from "react"
-import { Link } from "gatsby"
-
-import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import { Global, css } from "@emotion/core"
+import { ThemeProvider } from "emotion-theming"
+import { Box } from "rebass"
+
+const theme = {
+
+}
 
 const IndexPage = () => (
-  <Layout>
+  <ThemeProvider theme={ theme }>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
+    <Global
+      styles={css`
+        body {
+          margin: 0;
+          font-family: sans-serif;
+        }
+      `}
+    />
+    <Box
+      sx={{
+        p: 40,
+        bg: "#111",
+        color: "#eee"
+      }}
+    >
+      Hi, I'm Jonathan, this is going to be my site.
+    </Box>
+  </ThemeProvider>
 )
 
 export default IndexPage
